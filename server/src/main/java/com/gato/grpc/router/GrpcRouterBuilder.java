@@ -6,15 +6,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class GrpcRouterBuilder {
 
-    private Class<? extends BindableService> serviceClass;
+    private Class<? extends BindableService> clazz;
 
     public GrpcRouterBuilder addService(Class<? extends BindableService> clazz) {
-        serviceClass = clazz;
+        this.clazz = clazz;
         return this;
     }
 
     public GrpcRouter build() {
-        return new GrpcRouter(this.serviceClass);
+        return new GrpcRouter(clazz);
     }
     
 }
